@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8qc0s68i7fpf"]
+[gd_scene load_steps=4 format=3 uid="uid://b8qc0s68i7fpf"]
 
 [ext_resource type="FontFile" uid="uid://cngjiginoa7ko" path="res://Assets/FredokaOne-Regular.ttf" id="1_im0tn"]
+[ext_resource type="Script" uid="uid://e251ytv36bi" path="res://block.gd" id="1_xfwl5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_im0tn"]
 size = Vector2(108, 108)
@@ -14,6 +15,8 @@ offset_right = -432.0
 offset_bottom = -852.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xfwl5")
+colors = Array[Color]([Color(0.00392157, 0.568627, 0.0666667, 1), Color(0.00392157, 0.776471, 0.00392157, 1), Color(0.227451, 0.494118, 0.905882, 1), Color(0.12549, 0.0745098, 0.207843, 1), Color(0.898039, 0.454902, 0.737255, 1), Color(0, 0.780392, 0.666667, 1)])
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1

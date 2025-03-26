@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpxcleem0gum0"]
+[gd_scene load_steps=7 format=3 uid="uid://cpxcleem0gum0"]
 
 [ext_resource type="Script" uid="uid://revajehe4ha3" path="res://player.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dfi3ta8iquut2" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://db54pvgkogane" path="res://Assets/Player.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dgvpww8yvqfvo" path="res://bullet.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b8qc0s68i7fpf" path="res://block.tscn" id="3_lquwl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ig7tw"]
 radius = 72.0
@@ -27,5 +28,7 @@ shape = SubResource("CircleShape2D_ig7tw")
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.15
 autostart = true
+
+[node name="Block" parent="." instance=ExtResource("3_lquwl")]
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
