@@ -8,15 +8,12 @@ size = Vector2(108, 108)
 
 [node name="Block" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -432.0
-offset_bottom = -852.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 108.0
+offset_bottom = 108.0
 script = ExtResource("1_xfwl5")
 colors = Array[Color]([Color(0.00392157, 0.568627, 0.0666667, 1), Color(0.00392157, 0.776471, 0.00392157, 1), Color(0.227451, 0.494118, 0.905882, 1), Color(0.12549, 0.0745098, 0.207843, 1), Color(0.898039, 0.454902, 0.737255, 1), Color(0, 0.780392, 0.666667, 1)])
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -45,3 +42,5 @@ vertical_alignment = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(54, 54)
 shape = SubResource("RectangleShape2D_im0tn")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

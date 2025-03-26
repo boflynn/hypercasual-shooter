@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpxcleem0gum0"]
+[gd_scene load_steps=8 format=3 uid="uid://cpxcleem0gum0"]
 
 [ext_resource type="Script" uid="uid://revajehe4ha3" path="res://player.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dfi3ta8iquut2" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://db54pvgkogane" path="res://Assets/Player.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dgvpww8yvqfvo" path="res://bullet.tscn" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://b8qc0s68i7fpf" path="res://block.tscn" id="3_lquwl"]
+[ext_resource type="FontFile" uid="uid://cngjiginoa7ko" path="res://Assets/FredokaOne-Regular.ttf" id="6_7mycd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ig7tw"]
 radius = 72.0
@@ -12,6 +13,7 @@ radius = 72.0
 [node name="Main" type="Node"]
 script = ExtResource("1_h2yge")
 bullet = ExtResource("2_1bvp3")
+block = ExtResource("3_lquwl")
 
 [node name="Player" type="Area2D" parent="."]
 position = Vector2(270, 850)
@@ -29,6 +31,33 @@ shape = SubResource("CircleShape2D_ig7tw")
 wait_time = 0.15
 autostart = true
 
-[node name="Block" parent="." instance=ExtResource("3_lquwl")]
+[node name="BlockSpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="UI" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -122.0
+offset_top = -55.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_7mycd")
+theme_override_font_sizes/font_size = 45
+text = "Score: 0"
 
 [connection signal="timeout" from="FireRateTimer" to="." method="_on_fire_rate_timer_timeout"]
+[connection signal="timeout" from="BlockSpawnTimer" to="." method="_on_block_spawn_timer_timeout"]
